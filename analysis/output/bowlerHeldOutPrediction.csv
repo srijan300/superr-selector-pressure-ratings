@@ -1,0 +1,4 @@
+predictor,description,correlationWithHeldOutPressureImpact
+expectedPressureImpact,headline rating (pressure + usual level),0.20971628715556967
+pressureOnlyEstimate,pressure-ball record alone,0.17486712014972333
+rawBaselineImpact,usual-level record alone,0.16139052451260982

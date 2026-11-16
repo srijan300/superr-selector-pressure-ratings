@@ -1,0 +1,6 @@
+measure,description,halfCorrelation,fullSampleReliability
+expectedPressureImpact,headline rating (pressure + usual level),0.31331411839948037,0.47713507988677134
+rawPressureImpact,pressure-ball record alone,0.15619282355631023,0.27018473108296914
+rawBaselineImpact,usual-level record alone,0.2234835551929324,0.3653233494547314
+rawLift,lift (pressure minus usual),0.02741647993058212,0.053369749203233584
+rawOutingRate,share of pressure outings above expectation,0.13781569298626833,0.24224607524011632

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pressure Ratings | SupeRR Selector Season 2</title>
+  <meta name="description" content="Which T20 batters and bowlers deliver when the match is on the line: a leverage-based pressure rating built on IPL and T20I ball-by-ball data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboardStyles.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <p class="eyebrow">SupeRR Selector Season 2 <span aria-hidden="true">/</span> Round 1 <span aria-hidden="true">/</span> Pressure ratings</p>
+      <div class="mastheadGrid">
+        <div>
+          <h1>Who delivers when it matters?</h1>
+          <p class="deck">Every ball from <span data-fact="summary.usedMatches" data-format="integer"></span> IPL and T20I matches, scored by how much the result hung on it and by what the player did with it.</p>
+        </div>
+        <dl class="scoreline">
+          <div><dt>Span</dt><dd><span data-fact="summary.firstDate"></span> to <span data-fact="summary.lastDate"></span></dd></div>
+          <div><dt>Deliveries</dt><dd><span data-fact="summary.usedBalls" data-format="integer"></span></dd></div>
+          <div><dt>Pressure balls</dt><dd><span data-fact="summary.pressureBalls" data-format="integer"></span></dd></div>
+          <div><dt>Rated</dt><dd><span data-count="batter"></span> batters, <span data-count="bowler"></span> bowlers</dd></div>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sectionNav" aria-label="Sections">
+    <div class="wrap">
+      <a href="#lists">The lists</a>
+      <a href="#explorer">Every player</a>
+      <a href="#pressure">What pressure is</a>
+      <a href="#certainty">How sure</a>
+      <a href="#royals">Royals</a>
+      <a href="#method">Method</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="lists">
+      <header class="sectionHead">
+        <span class="sectionNumber">01</span>
+        <div>
+          <h2>The lists</h2>
+          <p>Ten batters and ten bowlers, ranked by expected value on a pressure ball: runs per 100 balls better than an average player in the same situations. The whisker is one standard deviation either side. Select a name to open the full record.</p>
+        </div>
+      </header>
+      <div class="listPair">
+        <div><h3>Batters</h3><ol class="rankedList" id="batterList"></ol></div>
+        <div><h3>Bowlers</h3><ol class="rankedList" id="bowlerList"></ol></div>
+      </div>
+    </section>
+
+    <section id="explorer">
+      <header class="sectionHead">
+        <span class="sectionNumber">02</span>
+        <div>
+          <h2>Every player</h2>
+          <p>All eligible players, listed or not. The chart sets each player's pressure record against their usual level; the table below it carries every number.</p>
+        </div>
+      </header>
+      <div class="controlRow">
+        <div class="segmented" role="group" aria-label="Discipline">
+          <button type="button" data-role="batter" aria-pressed="true">Batters</button>
+          <button type="button" data-role="bowler" aria-pressed="false">Bowlers</button>
+        </div>
+        <label class="searchField">Find a player <input type="search" id="playerSearch" autocomplete="off" placeholder="Name or team"></label>
+        <label class="checkField"><input type="checkbox" id="listedOnly"> Listed players only</label>
+      </div>
+      <div class="explorerGrid">
+        <figure class="plot">
+          <figcaption>
+            <strong>Pressure record against usual level</strong>
+            <span class="legend"><span class="key keyListed"></span>Listed <span class="key keyOther"></span>Eligible, not listed <span class="key keySelected"></span>Selected</span>
+          </figcaption>
+          <div id="scatterPlot"></div>
+          <p class="plotNote">Above the diagonal a player has been better under pressure than usual. That gap does not repeat from one half of a player's matches to the other, which is why the rating blends both records rather than trusting the pressure record alone.</p>
+        </figure>
+        <aside class="playerCard" id="playerCard" aria-live="polite"></aside>
+      </div>
+      <div class="tableScroll tall"><table class="playerTable" id="playerTable"></table></div>
+    </section>
+
+    <section id="pressure">
+      <header class="sectionHead">
+        <span class="sectionNumber">03</span>
+        <div>
+          <h2>What pressure is</h2>
+          <p>A ball is under pressure when the result hinges on it. For each delivery a win-probability model gives the expected swing across the six things that can happen next. The top <span data-fact="summary.pressureShare" data-format="percent"></span> of balls by that swing are pressure balls.</p>
+        </div>
+      </header>
+      <div class="pressureGrid">
+        <figure class="plot">
+          <figcaption><strong>Share of chase balls that count as pressure</strong><span class="legend">by required rate and balls left</span></figcaption>
+          <div id="heatmapPlot"></div>
+          <div class="rampKey"><span>0%</span><span class="ramp"></span><span>100%</span></div>
+        </figure>
+        <div>
+          <dl class="comparison" id="pressureComparison"></dl>
+          <p>Pressure peaks when eight to twelve an over is needed late in a chase, and fades both when the chase is easy and when it is already lost. Nobody told the model that; it falls out of the win probabilities.</p>
+          <p><span data-fact="summary.chaseShareOfPressure" data-format="percent"></span> of pressure balls are in the second innings. With no target on the board, no single first-innings ball swings the result much, so a rescue after an early collapse is not counted as pressure here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="certainty">
+      <header class="sectionHead">
+        <span class="sectionNumber">04</span>
+        <div>
+          <h2>How sure</h2>
+          <p>Three checks on whether the ranking deserves trust: does each measure repeat across matches, how far does a rank move when matches are resampled, and what happens when an assumption changes.</p>
+        </div>
+      </header>
+      <div class="certaintyGrid">
+        <figure class="plot">
+          <figcaption><strong>Does it repeat?</strong><span class="legend">correlation between two random halves of the matches</span></figcaption>
+          <div id="repeatPlot"></div>
+          <p class="plotNote">A player's lift under pressure, and for batters the pressure record on its own, barely repeat. The blended rating does.</p>
+        </figure>
+        <figure class="plot">
+          <figcaption>
+            <strong>How far a rank moves</strong>
+            <span class="legend"><span class="key keyListed"></span>Listed <span class="key keyOther"></span>Not listed</span>
+          </figcaption>
+          <div class="segmented small" role="group" aria-label="Discipline for rank intervals">
+            <button type="button" data-interval-role="batter" aria-pressed="true">Batters</button>
+            <button type="button" data-interval-role="bowler" aria-pressed="false">Bowlers</button>
+          </div>
+          <div id="intervalPlot"></div>
+          <p class="plotNote">Median rank and the 5th to 95th percentile over <span data-fact="summary.bootstrapRounds" data-format="integer"></span> resamples of whole matches. The line marks the edge of the top ten.</p>
+        </figure>
+      </div>
+      <h3>Change one assumption</h3>
+      <div class="tableScroll"><table class="plainTable" id="sensitivityTable"></table></div>
+    </section>
+
+    <section id="royals">
+      <header class="sectionHead">
+        <span class="sectionNumber">05</span>
+        <div>
+          <h2>Royals</h2>
+          <p>The same per-ball measure, summed for Rajasthan Royals on IPL pressure balls since <span data-fact="summary.royalsFromSeason"></span> and set against the other nine teams. Each phase is only a few hundred balls, so read direction, not size.</p>
+        </div>
+      </header>
+      <div class="royalsGrid">
+        <figure class="plot">
+          <figcaption><strong>Royals minus other teams</strong><span class="legend">runs per 100 pressure balls</span></figcaption>
+          <div id="royalsPlot"></div>
+        </figure>
+        <div>
+          <h3>Current squad in the rankings</h3>
+          <div class="tableScroll"><table class="plainTable" id="squadTable"></table></div>
+          <p class="plotNote" id="squadNote"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="method">
+      <header class="sectionHead">
+        <span class="sectionNumber">06</span>
+        <div>
+          <h2>Method</h2>
+          <p>The short version. The <a href="methodologyReport.pdf">methodology report</a> has the full account, the evidence tables and the limitations.</p>
+        </div>
+      </header>
+      <ol class="methodSteps">
+        <li><strong>Rebuild the match.</strong> Score, wickets and balls left before every delivery, checked against official margins in <span data-fact="summary.resultsChecked" data-format="integer"></span> decided matches. Rain-revised matches and super overs are left out.</li>
+        <li><strong>Price the moment.</strong> Win probability from the match state, validated on held-out matches (chase AUC <span data-fact="summary.winMetrics.2.auc" data-format="decimal3"></span>). Pressure is the expected swing on the ball about to be bowled.</li>
+        <li><strong>Score the ball.</strong> Runs above what an average player manages in that situation against that opposition, with a dismissal priced by the batting resource it costs. Bowlers are scored the same way in reverse.</li>
+        <li><strong>Rate the player.</strong> Pressure record and usual level are blended by how informative each is and shrunk towards average for small samples. To be listed, a player's own pressure record must be above average and must not credibly dip below their usual level.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="wrap pageFoot">
+    <p>Built for SupeRR Selector Season 2, Round 1. Player-level summaries only; the underlying ball-by-ball data is not published here.</p>
+  </footer>
+
+  <div class="tooltip" id="tooltip" role="status" hidden></div>
+  <script type="module" src="dashboardMain.js"></script>
+</body>
+</html>

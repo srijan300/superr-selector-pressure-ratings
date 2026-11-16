@@ -1,0 +1,10 @@
+variant,eligiblePlayers,topListOverlap,headlineTopStillEligible,rankCorrelation
+Pressure = top 30% of leverage,108,6,10,0.9880597014925374
+Pressure = top 25% of leverage,86,8,10,0.9945725915875171
+Pressure = top 15% of leverage,44,9,9,0.9959126145172658
+Pressure = top 10% of leverage,22,6,7,0.6431394692264258
+Rule-based pressure (crunch chase or collapse),38,4,4,0.6758974358974358
+No recency weighting,66,7,10,0.9334098737083812
+IPL matches only,37,7,8,0.8233760075865337
+Conservative ranking (estimate minus 1 sd),66,10,10,0.9937793549733851
+Pressure record alone (no usual-level prior),66,5,10,0.6000000000000001

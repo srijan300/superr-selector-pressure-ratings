@@ -1,0 +1,21 @@
+list,finalRank,playerName,rating,topListProbability
+batter,1,Vaibhav Sooryavanshi,24.776,0.972
+batter,2,Abhishek Sharma,22.83,0.986
+batter,3,Suryakumar Yadav,16.13,0.932
+batter,4,Tim David,14.21,0.864
+batter,5,Shreyas Iyer,11.026,0.636
+batter,6,Heinrich Klaasen,10.998,0.68
+batter,7,Phil Salt,9.674,0.482
+batter,8,Virat Kohli,9.646,0.46
+batter,9,Ishan Kishan,8.345,0.378
+batter,10,Sai Sudharsan,8.248,0.336
+bowler,1,Varun Chakravarthy,15.406,0.85
+bowler,2,Sunil Narine,13.813,0.752
+bowler,3,Josh Hazlewood,13.067,0.602
+bowler,4,Mustafizur Rahman,12.477,0.652
+bowler,5,Mohammad Nawaz,11.895,0.506
+bowler,6,Jasprit Bumrah,11.168,0.516
+bowler,7,Kagiso Rabada,10.502,0.442
+bowler,8,Bhuvneshwar Kumar,9.799,0.402
+bowler,9,Rashid Khan,9.374,0.368
+bowler,10,Mitchell Santner,9.162,0.33

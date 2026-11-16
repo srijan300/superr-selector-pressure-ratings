@@ -1,0 +1,61 @@
+seasonYear,phase,side,balls,impactPer100,discipline
+2022,death,Other teams,898,-4.8395789951863435,batting
+2022,death,Royals,59,30.860139585332696,batting
+2022,middle,Other teams,1906,1.391725417209013,batting
+2022,middle,Royals,85,-3.9027975953611787,batting
+2022,powerplay,Other teams,1311,-11.400604357944225,batting
+2022,powerplay,Royals,106,15.616203938824217,batting
+2023,death,Other teams,723,-5.960376126465276,batting
+2023,death,Royals,134,19.02640233065735,batting
+2023,middle,Other teams,1458,5.619233252213462,batting
+2023,middle,Royals,179,4.211714713227751,batting
+2023,powerplay,Other teams,1159,5.754580497252213,batting
+2023,powerplay,Royals,114,-24.835560237847094,batting
+2024,death,Other teams,517,-5.305813245308933,batting
+2024,death,Royals,122,-10.452327751796705,batting
+2024,middle,Other teams,1142,-6.331934492389311,batting
+2024,middle,Royals,257,1.6448350850244635,batting
+2024,powerplay,Other teams,940,-4.113748778654532,batting
+2024,powerplay,Royals,171,-22.52610616542192,batting
+2025,death,Other teams,570,-0.3531984527786744,batting
+2025,death,Royals,128,-22.93760514168868,batting
+2025,middle,Other teams,1284,12.439096595306479,batting
+2025,middle,Royals,213,3.9852464306073663,batting
+2025,powerplay,Other teams,1123,0.3164879556251074,batting
+2025,powerplay,Royals,173,43.80025528919227,batting
+2026,death,Other teams,609,13.676623269624269,batting
+2026,death,Royals,30,34.17499616004825,batting
+2026,middle,Other teams,1369,6.207097550520324,batting
+2026,middle,Royals,91,-8.381202238402036,batting
+2026,powerplay,Other teams,1197,16.61921325001121,batting
+2026,powerplay,Royals,120,-11.189380057831224,batting
+2022,death,Other teams,850,-0.7104112770683816,bowling
+2022,death,Royals,177,28.208936564660686,bowling
+2022,middle,Other teams,1642,-0.15795378110313651,bowling
+2022,middle,Royals,423,-7.82532857340257,bowling
+2022,powerplay,Other teams,1209,1.3357860961428145,bowling
+2022,powerplay,Royals,252,36.96022377131853,bowling
+2023,death,Other teams,825,6.658992429229595,bowling
+2023,death,Royals,89,-27.567656756882997,bowling
+2023,middle,Other teams,1512,-2.5716736946952476,bowling
+2023,middle,Royals,175,-7.752808629443357,bowling
+2023,powerplay,Other teams,1203,-7.7047079107651895,bowling
+2023,powerplay,Royals,118,13.724845783292642,bowling
+2024,death,Other teams,551,9.514344254479049,bowling
+2024,death,Royals,127,-16.9135725085238,bowling
+2024,middle,Other teams,1290,7.5023806257484615,bowling
+2024,middle,Royals,163,-2.9258767409493918,bowling
+2024,powerplay,Other teams,1045,3.4698188917843016,bowling
+2024,powerplay,Royals,106,54.07649619248737,bowling
+2025,death,Other teams,693,6.9908453159571575,bowling
+2025,death,Royals,44,-27.243312241474854,bowling
+2025,middle,Other teams,1472,-11.364822564306039,bowling
+2025,middle,Royals,79,0.907201093443647,bowling
+2025,powerplay,Other teams,1277,-4.377265368685104,bowling
+2025,powerplay,Royals,74,-24.513161076250828,bowling
+2026,death,Other teams,547,-15.062409982986539,bowling
+2026,death,Royals,139,-1.5119076299230079,bowling
+2026,middle,Other teams,1264,-6.473960066715121,bowling
+2026,middle,Royals,262,-7.823198483523945,bowling
+2026,powerplay,Other teams,1175,-14.486485697732057,bowling
+2026,powerplay,Royals,197,-14.60857223909932,bowling
